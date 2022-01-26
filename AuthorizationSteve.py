@@ -2,14 +2,19 @@ import os.path
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 
 class AuthorizationSteve:
-    @staticmethod
-    def check_creds():
+
+    def __init__(self):
+        pass
+
+    def check_creds(self):
         creds = None
         # The file token.json stores the user's access and refresh tokens, and is
         # created automatically when the authorization flow completes for the first
@@ -28,3 +33,9 @@ class AuthorizationSteve:
             with open('token.json', 'w') as token:
                 token.write(creds.to_json())
         return creds
+
+    def get_service(self):
+        try:
+            return build('calendar', 'v3', credentials=self.check_creds())
+        except HttpError as error:
+            print('An error occurred: %s' % error)

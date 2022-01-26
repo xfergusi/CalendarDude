@@ -19,7 +19,8 @@ class EventGrabber:
     @staticmethod
     def get_events():
         try:
-            service = build('calendar', 'v3', credentials=AuthorizationSteve.check_creds())
+            # service = build('calendar', 'v3', credentials=AuthorizationSteve.check_creds())
+            service = AuthorizationSteve().get_service()
 
             # page_token = None
             # while True:
@@ -33,20 +34,20 @@ class EventGrabber:
             # Call the Calendar API
             now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
             print('Getting the upcoming events from my favorite calendars')
-            calsICareAbout = ['1nh3pmsfnovdchf203l6i8tbtbtms8eg@import.calendar.google.com', 'xfergusi@gmail.com']
-            eventsFromAllCals = []
-            for cal in calsICareAbout:
+            cals_i_care_about = ['1nh3pmsfnovdchf203l6i8tbtbtms8eg@import.calendar.google.com', 'xfergusi@gmail.com']
+            events_from_all_cals = []
+            for cal in cals_i_care_about:
                 events_result = service.events().list(calendarId=cal, timeMin=now,
                                                       maxResults=10, singleEvents=True,
                                                       orderBy='startTime').execute()
-                eventsFromAllCals.append(events_result.get('items', []))
+                events_from_all_cals.append(events_result.get('items', []))
 
-            if not eventsFromAllCals:
+            if not events_from_all_cals:
                 print('No upcoming events found.')
                 return
 
             # Prints the start and name of the next 10 events
-            for events in eventsFromAllCals:
+            for events in events_from_all_cals:
                 for event in events:
                     start = event['start'].get('dateTime', event['start'].get('date'))
                     print(start, event['summary'])
