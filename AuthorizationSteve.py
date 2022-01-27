@@ -11,9 +11,6 @@ SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
 class AuthorizationSteve:
 
-    def __init__(self):
-        pass
-
     def check_creds(self):
         creds = None
         # The file token.json stores the user's access and refresh tokens, and is

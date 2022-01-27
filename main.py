@@ -10,12 +10,12 @@ def main():
         'summary': 'test',
         'description': 'A chance to hear more about Google\'s developer products.',
         'start': {
-            'dateTime': '2022-01-28T09:00:00-07:00',
-            'timeZone': 'Australia/NSW',
+            'dateTime': '2022-01-28T09:00:00',
+            'timeZone': 'Australia/Sydney',
         },
         'end': {
-            'dateTime': '2022-01-28T17:00:00-07:00',
-            'timeZone': 'Australia/NSW',
+            'dateTime': '2022-01-28T17:00:00',
+            'timeZone': 'Australia/Sydney',
         },
     }
 
