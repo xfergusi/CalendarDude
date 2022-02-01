@@ -4,29 +4,29 @@ from AuthorizationSteve import AuthorizationSteve
 
 
 class EventCreator:
-    def makeAnEvent(self, summary, description, start, end, allday):
-        time_period = "date"
-        if(allday):
-            time_period = "dataTime"
+    def __make_an_event(self, summary, description, start, end, allday):
+        time_period = "dateTime"
+        if allday:
+            time_period = "date"
         service = AuthorizationSteve().get_service()
         event = {
-            'summary': 'test',
-            'description': 'A chance to hear more about Google\'s developer products.',
+            'summary': summary,
+            'description': description,
             'start': {
-                'dateTime': '2022-01-28T09:00:00',
-                time_period: 'Australia/Sydney',
+                time_period: str(start),
+                'timeZone': 'Australia/Sydney',
             },
             'end': {
-                'dateTime': '2022-01-28T17:00:00',
-                time_period: 'Australia/Sydney',
+                time_period: str(end),
+                'timeZone': 'Australia/Sydney',
             },
         }
 
         event = service.events().insert(calendarId='primary', body=event).execute()
         print('Event created: %s' % (event.get('htmlLink')))
 
-    def makeAnEvent(self, summary, description, start, end):
-        self.makeAnEvent(summary, description, start, end, False)
+    def make_an_event(self, summary, description, start, end):
+        self.__make_an_event(summary, description, start, end, False)
 
-    def makeAnAnAllDayEvent(self, summary, description, start, end):
-        self.makeAnEvent(summary, description, start, end, True)
+    def make_an_all_day_event(self, summary, description, start, end):
+        self.__make_an_event(summary, description, start, end, True)

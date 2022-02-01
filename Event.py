@@ -8,12 +8,12 @@ class Event:
     start = None
     end = None
 
-    def __init__(self, event_id, summary, description, start, end):
+    def __init__(self, event_id, summary, start, end):
         self.event_id = event_id
         self.summary = summary
-        self.description = description
+        self.description = event_id
         self.start = start
         self.end = end
 
-    def createGCalEvent(self):
-        EventCreator().makeAnEvent(self.summary, self.description, self.start, self.end)
+    def make_an_all_day_event(self):
+        EventCreator().make_an_all_day_event(self.summary, self.description, self.start, self.end)
