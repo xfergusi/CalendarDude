@@ -16,11 +16,12 @@ SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 
 class EventGrabber:
-    @staticmethod
-    def get_events():
+    service = AuthorizationSteve().get_service()
+
+    def get_events(self):
         try:
             # service = build('calendar', 'v3', credentials=AuthorizationSteve.check_creds())
-            service = AuthorizationSteve().get_service()
+            # service = AuthorizationSteve().get_service()
 
             # page_token = None
             # while True:
@@ -37,7 +38,7 @@ class EventGrabber:
             cals_i_care_about = ['1nh3pmsfnovdchf203l6i8tbtbtms8eg@import.calendar.google.com', 'xfergusi@gmail.com']
             events_from_all_cals = []
             for cal in cals_i_care_about:
-                events_result = service.events().list(calendarId=cal, timeMin=now,
+                events_result = self.service.events().list(calendarId=cal, timeMin=now,
                                                       maxResults=10, singleEvents=True,
                                                       orderBy='startTime').execute()
                 events_from_all_cals.append(events_result.get('items', []))
@@ -54,3 +55,5 @@ class EventGrabber:
 
         except HttpError as error:
             print('An error occurred: %s' % error)
+
+    def get_events_by_date_range(self, start_time, end_time):
