@@ -22,7 +22,7 @@ def main():
         al_event = AlEvents(row["Site Visit Row ID"],
                            row["Site #"],
                            row["Visit Window Min Date"],
-                           row['Visit Window Min Date'])
+                           row['Visit Window Max Date'])
         print(al_event)
         print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
         al_event.make_the_events()
