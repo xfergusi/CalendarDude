@@ -1,8 +1,10 @@
 from Event import Event
 
 
-class AlEvent(Event):
+class AlEvents():
 
+    start_of_window = None
+    end_of_window = None
     site_number = None
 
     def __init__(self, event_id, site_number, start, end):
@@ -10,3 +12,8 @@ class AlEvent(Event):
         self.site_number = site_number
         self.start = start
         self.end = end
+        self.summary = self.site_number + " : "
+
+    def makeTheEvents(self):
+
+

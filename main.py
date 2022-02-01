@@ -16,11 +16,11 @@ def main():
     only_planned_df = data.loc[data['Visit Status'] == 'Planned']
     for index, row in only_planned_df.iterrows():
         print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
-        # row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
         al_event = AlEvent(row["Site Visit Row ID"],
                            row["Site #"],
                            row["Visit Window Min Date"],
                            row['Visit Window Min Date'])
+        al_event.makeTheEvents()
         print(al_event)
 
 
