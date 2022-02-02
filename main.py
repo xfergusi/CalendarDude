@@ -14,6 +14,7 @@ def main():
         if option == "allison":
             print("Running code for allison")
             AllisonVisitManager().generate_visits_on_gcal()
+            break
         elif option == quit:
             break
         else:
