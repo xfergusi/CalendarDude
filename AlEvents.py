@@ -15,6 +15,6 @@ class AlEvents:
         self.end_of_window.make_an_all_day_event()
 
     def check_if_events_already_exists(self):
-        start_of_window.check_if_events_already_exists()
-        end_of_window.check_if_events_already_exists()
+        self.start_of_window.check_if_event_exists()
+        self.end_of_window.check_if_event_exists()
 

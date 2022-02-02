@@ -57,3 +57,4 @@ class EventGrabber:
             print('An error occurred: %s' % error)
 
     def get_events_by_date_range(self, start_time, end_time):
+        pass

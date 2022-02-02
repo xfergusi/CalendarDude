@@ -12,12 +12,12 @@ class AllisonVisitManager:
         for index, row in only_planned_df.iterrows():
             # if pd.isnull(row["Visit Window Min Date"]):
             #     continue
-            if row['Site Visit Row ID'] != "1-ZQUABI8":
-                continue
+            # if row['Site Visit Row ID'] != "1-ZQUABI8":
+            #     continue
             al_event = AlEvents(row["Site Visit Row ID"],
                                 row["Site #"],
                                 row["Visit Window Min Date"],
                                 row['Visit Window Max Date'])
-            print(al_event)
+            # print(al_event)
             print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
-            al_event.make_the_events()
+            # al_event.make_the_events()

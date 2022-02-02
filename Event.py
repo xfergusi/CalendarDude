@@ -20,5 +20,6 @@ class Event:
         EventCreator().make_an_all_day_event(self.summary, self.description, self.start, self.end)
 
     def check_if_event_exists(self):
-        EventGrabber.get_events_by_date_range()
+        pass
+        # EventGrabber.get_events_by_date_range()
 
