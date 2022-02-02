@@ -1,7 +1,8 @@
 
 import pandas as pd
 
-from AlEvents import AlEvents
+from VisitType.InterimMonitoring import InterimMonitoring
+from VisitType.CloseOut import CloseOut
 
 
 class AllisonVisitManager:
@@ -14,10 +15,15 @@ class AllisonVisitManager:
             #     continue
             # if row['Site Visit Row ID'] != "1-ZQUABI8":
             #     continue
-            al_event = AlEvents(row["Site Visit Row ID"],
-                                row["Site #"],
-                                row["Visit Window Min Date"],
-                                row['Visit Window Max Date'])
-            # print(al_event)
-            print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
-            # al_event.make_the_events()
+            if row["Visit Type"] == "Interim Monitoring":
+                interim = InterimMonitoring(row["Site Visit Row ID"],
+                                             row["Site #"],
+                                             row["Visit Window Min Date"],
+                                             row['Visit Window Max Date'])
+                # print(interim)
+                print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
+                # interim.make_the_events()
+            elif row["Visit Type"] == "Close-Out":
+                closing = CloseOut(row["Site Visit Row ID"],
+                                             row["Site #"],
+                                             row['Visit Status Effective'])

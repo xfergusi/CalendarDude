@@ -1,7 +1,7 @@
 from Event import Event
 
 
-class AlEvents:
+class InterimMonitoring:
 
     start_of_window = None
     end_of_window = None
