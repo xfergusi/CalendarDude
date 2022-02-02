@@ -20,10 +20,10 @@ class AllisonVisitManager:
                                              row["Site #"],
                                              row["Visit Window Min Date"],
                                              row['Visit Window Max Date'])
-                # print(interim)
-                print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
-                # interim.make_the_events()
+                # print(row["Site #"], row["Visit Window Min Date"], row["Visit Window Max Date"], row['Site Visit Row ID'])
+                interim.make_the_events()
             elif row["Visit Type"] == "Close-Out":
                 closing = CloseOut(row["Site Visit Row ID"],
                                              row["Site #"],
                                              row['Visit Status Effective'])
+                closing.make_the_event()

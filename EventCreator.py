@@ -24,8 +24,10 @@ class EventCreator:
             },
         }
 
-        event = service.events().insert(calendarId='primary', body=event).execute()
-        print('Event created: %s' % (event.get('htmlLink')))
+        print(event)
+
+        # event = service.events().insert(calendarId='primary', body=event).execute()
+        # print('Event created: %s' % (event.get('htmlLink')))
 
     def make_an_event(self, summary, description, start, end):
         self.__make_an_event(summary, description, start, end, False)
