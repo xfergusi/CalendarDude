@@ -13,8 +13,3 @@ class InterimMonitoring:
     def make_the_events(self):
         self.start_of_window.make_an_all_day_event()
         self.end_of_window.make_an_all_day_event()
-
-    def check_if_events_already_exists(self):
-        self.start_of_window.check_if_event_exists()
-        self.end_of_window.check_if_event_exists()
-

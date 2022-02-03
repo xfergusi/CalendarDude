@@ -10,6 +10,3 @@ class CloseOut:
 
     def make_the_event(self):
         self.visit_status_effective.make_an_all_day_event()
-
-    def check_if_events_already_exists(self):
-        self.visit_status_effective.check_if_event_exists()

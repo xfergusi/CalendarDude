@@ -10,7 +10,6 @@ class EventCreator:
             time_period = "date"
             start = start[0:10]
             end = end[0:10]
-        service = AuthorizationSteve().get_service()
         event = {
             'summary': summary,
             'description': description,
@@ -26,6 +25,7 @@ class EventCreator:
 
         print(event)
 
+        # service = AuthorizationSteve().get_service()
         # event = service.events().insert(calendarId='primary', body=event).execute()
         # print('Event created: %s' % (event.get('htmlLink')))
 

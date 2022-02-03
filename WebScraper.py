@@ -1,3 +1,5 @@
+from google.auth.transport import requests
+
 
 class WebScraper:
     def scrape_the_web(self):
