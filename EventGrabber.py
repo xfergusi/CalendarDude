@@ -60,7 +60,7 @@ class EventGrabber:
         except HttpError as error:
             print('An error occurred: %s' % error)
 
-    def get_all_events_after_now(self):
+    def get_all_event_ids_after_now(self):
         try:
             # Call the Calendar API
             now = datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time

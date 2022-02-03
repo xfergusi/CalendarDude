@@ -1,6 +1,7 @@
 import sys
 
 from AllisonVisitManager import AllisonVisitManager
+from TideLevelManager import TideLevelManager
 
 
 def main():
@@ -8,6 +9,7 @@ def main():
     while option != "quit":
         print("Here are your options, not case sensitive")
         print("Allison : Runs that bit of code that creates events for allison")
+        print("tide : pulls data to find low tides for the next bit")
         print("Quit : kills the program\n")
         # option = input("Whacha tryin' to do?\n").lower()
         option = "allison"
@@ -15,6 +17,9 @@ def main():
             print("Running code for allison")
             AllisonVisitManager().generate_visits_on_gcal()
             break
+        elif option == "tide":
+            print("Running code for low")
+            TideLevelManager().generate_tide_events()
         elif option == quit:
             break
         else:
