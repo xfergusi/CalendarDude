@@ -25,7 +25,7 @@ class Event:
 
     def check_if_event_exists(self):
         print(self.event_id)
-        print(self.event_id_holder.event_ids)
+        # print(self.event_id_holder.event_ids)
         if self.event_id in self.event_id_holder.event_ids:
             print("we got one")
 

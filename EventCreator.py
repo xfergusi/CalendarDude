@@ -23,7 +23,7 @@ class EventCreator:
             },
         }
 
-        print(event)
+        # print(event)
 
         # service = AuthorizationSteve().get_service()
         # event = service.events().insert(calendarId='primary', body=event).execute()

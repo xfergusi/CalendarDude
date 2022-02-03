@@ -64,7 +64,7 @@ class EventGrabber:
         try:
             # Call the Calendar API
             now = datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-            print('Getting the upcoming events from my favorite calendars')
+            # print('Getting the upcoming events from my favorite calendars')
             cals_i_care_about = ['1nh3pmsfnovdchf203l6i8tbtbtms8eg@import.calendar.google.com', 'xfergusi@gmail.com']
             events_from_all_cals = []
             for cal in cals_i_care_about:
@@ -76,17 +76,17 @@ class EventGrabber:
                 events_from_all_cals.append(events_result.get('items', []))
 
             if not events_from_all_cals:
-                print('No upcoming events found.')
+                # print('No upcoming events found.')
                 return
 
             event_ids = []
             for events in events_from_all_cals:
                 for event in events:
                     start = event['start'].get('dateTime', event['start'].get('date'))
-                    print(start, event['summary'])
+                    # print(start, event['summary'])
                     if 'id' in event:
                         event_ids.append(event['id'])
-            print(event_ids)
+            # print(event_ids)
             return event_ids
 
         except HttpError as error:
