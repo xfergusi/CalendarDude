@@ -11,8 +11,8 @@ def main():
         print("Allison : Runs that bit of code that creates events for allison")
         print("tide : pulls data to find low tides for the next bit")
         print("Quit : kills the program\n")
-        # option = input("Whacha tryin' to do?\n").lower()
-        option = "allison"
+        option = input("Whacha tryin' to do?\n").lower()
+        # option = "allison"
         if option == "allison":
             print("Running code for allison")
             AllisonVisitManager().generate_visits_on_gcal()

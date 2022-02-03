@@ -20,12 +20,12 @@ class Event:
         self.event_id_holder = EventIDHolder()
 
     def make_an_all_day_event(self):
-        EventCreator().make_an_all_day_event(self.summary, self.description, self.start, self.end)
-        self.check_if_event_exists()
+        if not self.check_if_event_exists():
+            EventCreator().make_an_all_day_event(self.event_id, self.summary, self.description, self.start, self.end)
 
     def check_if_event_exists(self):
-        print(self.event_id)
-        # print(self.event_id_holder.event_ids)
         if self.event_id in self.event_id_holder.event_ids:
-            print("we got one")
+            print("Looks like this event already exists. I won't create another one. You're welcome ")
+            return True
+
 
