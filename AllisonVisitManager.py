@@ -11,13 +11,11 @@ class AllisonVisitManager:
         only_planned_df = data.loc[data['Visit Status'] == 'Planned']
         for index, row in only_planned_df.iterrows():
             if row["Visit Type"] == "Interim Monitoring":
-                interim = InterimMonitoring(row["Site Visit Row ID"],
-                                            row["Site #"],
+                interim = InterimMonitoring(row["Site #"],
                                             row["Visit Window Min Date"],
                                             row['Visit Window Max Date'])
                 interim.make_the_events()
             elif row["Visit Type"] == "Close-Out":
-                closing = CloseOut(row["Site Visit Row ID"],
-                                   row["Site #"],
+                closing = CloseOut(row["Site #"],
                                    row['Visit Status Effective'])
                 closing.make_the_event()
