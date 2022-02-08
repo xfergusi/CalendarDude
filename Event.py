@@ -1,8 +1,5 @@
 import hashlib
-
 from EventCreator import EventCreator
-from EventGrabber import EventGrabber
-from EventIDHolder import EventIDHolder
 
 
 def set_id(summary, start, end):
@@ -15,7 +12,7 @@ def set_id(summary, start, end):
 class Event:
     event_id = None
     summary = None
-    description = None
+    description = ""
     start = None
     end = None
     event_id_holder = None
@@ -30,6 +27,10 @@ class Event:
     def make_an_all_day_event(self):
         if not self.check_if_event_exists():
             EventCreator().make_an_all_day_event(self.event_id, self.summary, self.description, self.start, self.end)
+
+    def make_an_event(self):
+        if not self.check_if_event_exists():
+            EventCreator().make_an_event(self.event_id, self.summary, self.description, self.start, self.end)
 
     def check_if_event_exists(self):
         if self.event_id in self.event_id_holder.event_ids:

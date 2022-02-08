@@ -1,5 +1,4 @@
 from Event import Event
-from IDCreator import IDCreator
 
 
 class CloseOut:

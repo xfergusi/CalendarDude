@@ -1,4 +1,3 @@
-from IDCreator import IDCreator
 from Event import Event
 
 
