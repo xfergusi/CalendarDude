@@ -1,6 +1,6 @@
 import argparse
 
-from AllisonVisitManager import AllisonVisitManager
+from AllisonVisits.AllisonVisitManager import AllisonVisitManager
 from TideLevelManager import TideLevelManager
 
 
