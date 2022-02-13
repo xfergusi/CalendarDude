@@ -24,6 +24,5 @@ def main():
         print("Quit : kills the program\n")
 
 
-
 if __name__ == '__main__':
     main()
