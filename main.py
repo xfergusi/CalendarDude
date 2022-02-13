@@ -1,6 +1,7 @@
 import argparse
 
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
+from Bassam import BassamCodeManager
 from Tides.TideLevelManager import TideLevelManager
 
 
@@ -16,6 +17,9 @@ def main():
     elif option == "tide":
         print("Running code for low")
         TideLevelManager().generate_tide_events()
+    elif option == "bassam":
+        print("running bassam code")
+        BassamCodeManager.run()
     else:
         print("somehow you messed this up, try again")
         print("Here are your options, not case sensitive")

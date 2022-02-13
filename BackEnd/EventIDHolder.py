@@ -1,4 +1,4 @@
-from EventGrabber import EventGrabber
+from BackEnd.EventGrabber import EventGrabber
 
 
 class EventIDHolder:

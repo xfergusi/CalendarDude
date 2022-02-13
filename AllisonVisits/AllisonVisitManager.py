@@ -1,8 +1,7 @@
 import pandas as pd
 
-from VisitType.InterimMonitoring import InterimMonitoring
-
-from VisitType.CloseOut import CloseOut
+from AllisonVisits.VisitType.CloseOut import CloseOut
+from AllisonVisits.VisitType.InterimMonitoring import InterimMonitoring
 
 
 class AllisonVisitManager:

@@ -1,5 +1,6 @@
 import hashlib
-from EventCreator import EventCreator
+
+from BackEnd.EventCreator import EventCreator
 
 
 def set_id(summary, start, end):

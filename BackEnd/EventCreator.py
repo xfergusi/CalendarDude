@@ -1,6 +1,4 @@
-import pytz
-
-from AuthorizationSteve import AuthorizationSteve
+from BackEnd.AuthorizationSteve import AuthorizationSteve
 
 
 class EventCreator:
