@@ -1,4 +1,4 @@
-from Event import Event
+from BackEnd.Event import Event
 
 
 class InterimMonitoring:

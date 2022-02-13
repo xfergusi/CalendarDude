@@ -1,7 +1,7 @@
 import argparse
 
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
-from TideLevelManager import TideLevelManager
+from Tides.TideLevelManager import TideLevelManager
 
 
 def main():
