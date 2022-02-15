@@ -33,9 +33,10 @@ class Event:
         if not self.check_if_event_exists():
             print("making an event for this time: " + self.start + " - " + self.end)
             EventCreator().make_an_event(self.event_id, self.summary, self.description, self.start, self.end)
-            # pass
 
     def check_if_event_exists(self):
+        print(self.event_id_holder.event_ids)
+        print("event_id: " + self.event_id)
         if self.event_id in self.event_id_holder.event_ids:
             print("Looks like this event already exists. I won't create another one. You're welcome ")
             return True
