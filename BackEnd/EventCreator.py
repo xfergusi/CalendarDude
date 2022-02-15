@@ -22,8 +22,6 @@ class EventCreator:
             },
         }
 
-        print(event)
-
         service = AuthorizationSteve().get_service()
         event = service.events().insert(calendarId='primary', body=event).execute()
         print('Event created: %s' % (event.get('htmlLink')))

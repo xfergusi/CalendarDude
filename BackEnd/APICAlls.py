@@ -1,0 +1,1 @@
+def create_an_all_day_event()

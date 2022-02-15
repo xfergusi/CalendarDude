@@ -84,13 +84,9 @@ class EventGrabber:
             event_ids = []
             for events in events_from_all_cals:
                 for event in events:
-                    print(event)
                     start = event['start'].get('dateTime', event['start'].get('date'))
-                    print(start, event['summary'])
                     if 'id' in event:
                         event_ids.append(event['id'])
-                        print(event['id'])
-            # print(event_ids)
             return event_ids
 
         except HttpError as error:

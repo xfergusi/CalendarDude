@@ -35,8 +35,6 @@ class Event:
             EventCreator().make_an_event(self.event_id, self.summary, self.description, self.start, self.end)
 
     def check_if_event_exists(self):
-        print(self.event_id_holder.event_ids)
-        print("event_id: " + self.event_id)
         if self.event_id in self.event_id_holder.event_ids:
             print("Looks like this event already exists. I won't create another one. You're welcome ")
             return True
