@@ -8,5 +8,3 @@ class IDCreator:
         uuid = uuid.encode('utf-8')
         print(uuid)
         return hashlib.sha256(uuid).hexdigest()
-        # return hash(0, uuid)
-        # return row_id + str(start)

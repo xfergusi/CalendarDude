@@ -6,7 +6,7 @@ from AllisonVisits.VisitType.InterimMonitoring import InterimMonitoring
 
 class AllisonVisitManager:
     def generate_visits_on_gcal(self):
-        data = pd.read_excel(r'als_data/Site-Visits-1.8-Site-Visit-Details.xlsx')
+        data = pd.read_excel(r'AllisonVisits/als_data/Site-Visits-1.8-Site-Visit-Details.xlsx')
         only_planned_df = data.loc[data['Visit Status'] == 'Planned']
         for index, row in only_planned_df.iterrows():
             if row["Visit Type"] == "Interim Monitoring":

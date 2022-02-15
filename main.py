@@ -15,7 +15,7 @@ def main():
         print("Running code for allison")
         AllisonVisitManager().generate_visits_on_gcal()
     elif option == "tide":
-        print("Running code for low")
+        print("Running code for low tide calendar importer")
         TideLevelManager().generate_tide_events()
     elif option == "bassam":
         print("running bassam code")

@@ -22,13 +22,13 @@ class EventCreator:
             },
         }
 
-        # print(event)
+        print(event)
 
-        service = AuthorizationSteve().get_service()
-        event = service.events().insert(calendarId='primary', body=event).execute()
+        # service = AuthorizationSteve().get_service()
+        # event = service.events().insert(calendarId='primary', body=event).execute()
         print('Event created: %s' % (event.get('htmlLink')))
 
-    def make_an_event(self, summary, event_id, description, start, end):
+    def make_an_event(self, event_id, summary, description, start, end):
         self.__make_an_event(event_id, summary, description, start, end, False)
 
     def make_an_all_day_event(self, event_id, summary, description, start, end):
