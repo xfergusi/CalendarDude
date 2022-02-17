@@ -2,6 +2,7 @@ import argparse
 
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
 from Bassam import BassamCodeManager
+from Learning import LearningManager
 from Tides.TideLevelManager import TideLevelManager
 
 
@@ -20,12 +21,18 @@ def main():
     elif option == "bassam":
         print("running bassam code")
         BassamCodeManager.run()
+    elif option == "learning":
+        LearningManager.run()
     else:
         print("somehow you messed this up, try again")
         print("Here are your options, not case sensitive")
         print("allison : Runs that bit of code that creates events for allison")
         print("tide : pulls data to find low tides for the next bit")
         print("Quit : kills the program\n")
+
+
+
+
 
 
 if __name__ == '__main__':
