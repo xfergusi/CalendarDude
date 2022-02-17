@@ -1,7 +1,6 @@
 import argparse
 
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
-from Bassam import BassamCodeManager
 from Learning import LearningManager
 from Tides.TideLevelManager import TideLevelManager
 
@@ -18,9 +17,6 @@ def main():
     elif option == "tide":
         print("Running code for low tide calendar importer")
         TideLevelManager().generate_tide_events()
-    elif option == "bassam":
-        print("running bassam code")
-        BassamCodeManager.run()
     elif option == "learning":
         LearningManager.run()
     else:
