@@ -1,7 +1,6 @@
 import pandas as pd
 
-from AllisonVisits.VisitType.CloseOut import CloseOut
-from AllisonVisits.VisitType.InterimMonitoring import InterimMonitoring
+from BackEnd.APICAlls import create_an_all_day_event
 
 
 class AllisonVisitManager:
@@ -10,11 +9,16 @@ class AllisonVisitManager:
         only_planned_df = data.loc[data['Visit Status'] == 'Planned']
         for index, row in only_planned_df.iterrows():
             if row["Visit Type"] == "Interim Monitoring":
-                interim = InterimMonitoring(row["Site #"],
-                                            row["Visit Window Min Date"],
-                                            row['Visit Window Max Date'])
-                interim.make_the_events()
+                self.make_interim_monitoring_events(row["Site #"],
+                                                    row["Visit Window Min Date"],
+                                                    row['Visit Window Max Date'])
             elif row["Visit Type"] == "Close-Out":
-                closing = CloseOut(row["Site #"],
-                                   row['Visit Status Effective'])
-                closing.make_the_event()
+                self.make_close_out_event(row["Site #"],
+                                          row['Visit Status Effective'])
+
+    def make_interim_monitoring_events(self, site_number, start, end):
+        create_an_all_day_event(site_number + " Start of Window", start, start)
+        create_an_all_day_event(site_number + " End of Window", end, end)
+
+    def make_close_out_event(self, site_number, start):
+        create_an_all_day_event(site_number + " Close out", start, start)
