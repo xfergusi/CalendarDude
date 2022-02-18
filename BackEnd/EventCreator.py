@@ -1,3 +1,5 @@
+from googleapiclient.errors import HttpError
+
 from BackEnd.AuthorizationSteve import AuthorizationSteve
 
 
@@ -23,8 +25,14 @@ class EventCreator:
         }
 
         service = AuthorizationSteve().get_service()
-        event = service.events().insert(calendarId='primary', body=event).execute()
-        print('Event created: %s' % (event.get('htmlLink')))
+        try:
+            event = service.events().insert(calendarId='primary', body=event).execute()
+            print('Event created: %s' % (event.get('htmlLink')))
+        except HttpError as error:
+            if error.status_code == 409:
+                print(error.reason + " This should be ok. I probably deleted something: " + start)
+                pass
+
 
     def make_an_event(self, event_id, summary, description, start, end):
         self.__make_an_event(event_id, summary, description, start, end, False)
