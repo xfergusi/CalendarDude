@@ -14,7 +14,7 @@ def main():
     if option == "allison":
         print("Running code for allison")
         AllisonVisitManager().generate_visits_on_gcal()
-    elif option == "tide":
+    elif option == "tide" or option == "tides":
         print("Running code for low tide calendar importer")
         TideLevelManager().generate_tide_events()
     elif option == "learning":
