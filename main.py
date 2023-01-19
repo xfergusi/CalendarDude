@@ -3,6 +3,7 @@ import argparse
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
 from Learning import LearningManager
 from Tides.TideLevelManager import TideLevelManager
+from BackEnd.Testing2 import Testing2
 
 
 def main():
@@ -14,6 +15,9 @@ def main():
     if option == "allison":
         print("Running code for allison")
         AllisonVisitManager().generate_visits_on_gcal()
+    if option == "test":
+        print("Running code for test")
+        Testing2().test()
     elif option == "tide" or option == "tides":
         print("Running code for low tide calendar importer")
         TideLevelManager().generate_tide_events()
