@@ -7,6 +7,8 @@ import hashlib
 import os
 import pytz
 
+from BackEnd.APICAlls import create_an_all_day_event
+
 
 class Testing2:
     def test(self):
@@ -67,9 +69,12 @@ class Testing2:
         # else:
         #     print("Folder was created")
         #
-        f = open(os.path.join('example.ics'), 'wb')
-        f.write(cal.to_ical())
-        f.close()
+        # f = open(os.path.join('example.ics'), 'wb')
+        # f.write(cal.to_ical())
+        # f.close()
+
+        create_an_all_day_event("testing", 20230125, 20230125)
+        create_an_all_day_event("testing222", 20230125, 20230126)
 # {
 #             'summary': summary,
 #             'description': description,

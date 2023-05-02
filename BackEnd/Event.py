@@ -1,5 +1,3 @@
-from BackEnd.EventCreator import EventCreator
-
 
 class Event:
     event_id = None
@@ -14,9 +12,11 @@ class Event:
         self.start = str(start)
         self.end = str(end)
 
-    def make_an_all_day_event_direct_to_gcal(self):
-        EventCreator().make_an_all_day_event_direct_to_gcal(self.event_id, self.summary, self.description, self.start, self.end)
+    # def make_an_all_day_event_direct_to_gcal(self):
+    #     EventCreator().make_an_all_day_event_direct_to_gcal(self.event_id, self.summary, self.description, self.start, self.end)
+    #
+    # def make_an_event_direct_to_gcal(self):
+    #     EventCreator().make_an_event_direct_to_gcal(        self.event_id, self.summary, self.description, self.start, self.end)
 
-    def make_an_event_direct_to_gcal(self):
-        EventCreator().make_an_event_direct_to_gcal(self.event_id, self.summary, self.description, self.start, self.end)
-
+    # I think I should have an EventCreater, that takes in "Events" and poops out the ICS file
+    # The brain can call the Event creater at the end of the program.

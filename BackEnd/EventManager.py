@@ -2,6 +2,7 @@ import hashlib
 
 from BackEnd.Event import Event
 from BackEnd.EventIDHolder import EventIDHolder
+from BackEnd.TheBrain import TheBrain
 
 
 def set_id(summary, start, end):
@@ -12,13 +13,15 @@ def set_id(summary, start, end):
 
 class EventManager:
 
+    the_brain = TheBrain()
+
     def __init__(self):
         self.event_id_holder = EventIDHolder()
 
     def make_an_all_day_event(self, summary, start, end):
         event_id = set_id(summary, start, end)
-        if not self.check_if_event_exists(event_id):
-            Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
+        self.the_brain.list_of_events.append(Event(event_id, summary, start, end))
+        print(len(self.the_brain.list_of_events))
 
     def make_an_event(self, summary, start, end):
         event_id = set_id(summary, start, end)
@@ -30,15 +33,15 @@ class EventManager:
             print("Looks like this event already exists. I won't create another one. You're welcome ")
             return True
 
-    def make_an_all_day_event(self, summary, start, end, input_method):
-        event_id = set_id(summary, start, end)
-        if input_method == "ics":
-            Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
-        else:
-            if not self.check_if_event_exists(event_id):
-                Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
-
-    def make_an_event(self, summary, start, end, input_method):
-        event_id = set_id(summary, start, end)
-        if not self.check_if_event_exists(event_id):
-            Event(event_id, summary, start, end).make_an_event_direct_to_gcal()
+    # def make_an_all_day_event(self, summary, start, end, input_method):
+    #     event_id = set_id(summary, start, end)
+    #     if input_method == "ics":
+    #         Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
+    #     else:
+    #         if not self.check_if_event_exists(event_id):
+    #             Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
+    #
+    # def make_an_event(self, summary, start, end, input_method):
+    #     event_id = set_id(summary, start, end)
+    #     if not self.check_if_event_exists(event_id):
+    #         Event(event_id, summary, start, end).make_an_event_direct_to_gcal()

@@ -1,7 +1,9 @@
 from googleapiclient.errors import HttpError
-from icalendar import Calendar, Event, vCalAddress, vText
+from icalendar import Calendar, Event as calEvent, vCalAddress, vText
 from datetime import datetime, date
 import hashlib
+from BackEnd.Event import Event
+
 
 import os
 import pytz
@@ -46,24 +48,17 @@ class EventCreator:
         self.__make_an_event_direct_to_gcal(event_id, summary, description, start, end, True)
 
 
-    def __make_an_event_in_ics(self, event_id, summary, description, start, end, allday):
+    def make_an_event_in_ics(self, events):
 
         cal = Calendar()
-        event = Event()
-        event.add('summary', summary)
-        event.add('description', description)
-        event.add('dtstart', date(2023, 1, 25))
-        event['uid'] = event_id
+        for event in events:
 
-        cal.add_component(event)
-
-        event = Event()
-        event.add('summary', 'testing please work')
-        event.add('description', 'something')
-        event.add('dtstart', date(2023, 1, 26))
-        event['uid'] = event_id
-
-        cal.add_component(event)
+            calevent = calEvent()
+            calevent.add('summary', event.summary)
+            calevent.add('description', event.description)
+            calevent.add('dtstart', date(1993, 9, 7))
+            calevent['uid'] = event.event_id
+            cal.add_component(calevent)
 
         f = open(os.path.join('example.ics'), 'wb')
         f.write(cal.to_ical())

@@ -1,6 +1,7 @@
 import argparse
 
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
+from BackEnd.TheBrain import TheBrain
 from InputParams import InputParams
 from Learning import LearningManager
 from Tides.TideLevelManager import TideLevelManager
@@ -30,7 +31,10 @@ def main():
         print("tide : pulls data to find low tides for the next bit")
         print("Quit : kills the program\n")
 
-
+    the_brain = TheBrain()
+    the_brain.create_the_events()
+    print("memory test")
+    print(the_brain.list_of_events)
 
 
 
