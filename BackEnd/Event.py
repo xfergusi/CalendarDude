@@ -14,9 +14,9 @@ class Event:
         self.start = str(start)
         self.end = str(end)
 
-    def make_an_all_day_event(self):
-        EventCreator().make_an_all_day_event(self.event_id, self.summary, self.description, self.start, self.end)
+    def make_an_all_day_event_direct_to_gcal(self):
+        EventCreator().make_an_all_day_event_direct_to_gcal(self.event_id, self.summary, self.description, self.start, self.end)
 
-    def make_an_event(self):
-        EventCreator().make_an_event(self.event_id, self.summary, self.description, self.start, self.end)
+    def make_an_event_direct_to_gcal(self):
+        EventCreator().make_an_event_direct_to_gcal(self.event_id, self.summary, self.description, self.start, self.end)
 

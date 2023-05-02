@@ -4,7 +4,7 @@ from BackEnd.APICAlls import create_an_all_day_event
 
 
 class AllisonVisitManager:
-    def generate_visits_on_gcal(self):
+    def generate_visits_on_gcal(self, input_params):
         data = pd.read_excel(r'AllisonVisits/als_data/Allison_Site_Visits.xlsx')
         only_planned_df = data.loc[data['Visit Status'] == 'Planned']
         for index, row in only_planned_df.iterrows():
