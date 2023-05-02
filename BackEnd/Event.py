@@ -9,7 +9,7 @@ class Event:
     def __init__(self, event_id, summary, start, end):
         self.event_id = event_id
         self.summary = summary
-        self.start = str(start)
+        self.start = start
         self.end = str(end)
 
     # def make_an_all_day_event_direct_to_gcal(self):

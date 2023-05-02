@@ -19,7 +19,7 @@ class EventManager:
         self.event_id_holder = EventIDHolder()
 
     def make_an_all_day_event(self, summary, start, end):
-        event_id = set_id(summary, start, end)
+        event_id = set_id(summary, "test", end)
         self.the_brain.list_of_events.append(Event(event_id, summary, start, end))
         print(len(self.the_brain.list_of_events))
 

@@ -33,8 +33,6 @@ def main():
 
     the_brain = TheBrain()
     the_brain.create_the_events()
-    print("memory test")
-    print(the_brain.list_of_events)
 
 
 

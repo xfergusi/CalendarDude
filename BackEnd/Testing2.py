@@ -73,8 +73,8 @@ class Testing2:
         # f.write(cal.to_ical())
         # f.close()
 
-        create_an_all_day_event("testing", 20230125, 20230125)
-        create_an_all_day_event("testing222", 20230125, 20230126)
+        create_an_all_day_event("testing", date(2023, 5, 2), 20230502)
+        create_an_all_day_event("testing222", date(2023, 5, 6), 20230503)
 # {
 #             'summary': summary,
 #             'description': description,

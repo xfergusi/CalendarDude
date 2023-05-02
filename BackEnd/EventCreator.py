@@ -4,7 +4,6 @@ from datetime import datetime, date
 import hashlib
 from BackEnd.Event import Event
 
-
 import os
 import pytz
 
@@ -47,16 +46,14 @@ class EventCreator:
     def make_an_all_day_event_direct_to_gcal(self, event_id, summary, description, start, end):
         self.__make_an_event_direct_to_gcal(event_id, summary, description, start, end, True)
 
-
-    def make_an_event_in_ics(self, events):
+    def make_an_event(self, events):
 
         cal = Calendar()
         for event in events:
-
             calevent = calEvent()
             calevent.add('summary', event.summary)
             calevent.add('description', event.description)
-            calevent.add('dtstart', date(1993, 9, 7))
+            calevent.add('dtstart', event.start)
             calevent['uid'] = event.event_id
             cal.add_component(calevent)
 
