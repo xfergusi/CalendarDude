@@ -10,7 +10,7 @@ class Event:
         self.event_id = event_id
         self.summary = summary
         self.start = start
-        self.end = str(end)
+        self.end = end
 
     # def make_an_all_day_event_direct_to_gcal(self):
     #     EventCreator().make_an_all_day_event_direct_to_gcal(self.event_id, self.summary, self.description, self.start, self.end)

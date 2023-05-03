@@ -5,9 +5,6 @@ import hashlib
 from BackEnd.Event import Event
 
 import os
-import pytz
-
-from BackEnd.AuthorizationSteve import AuthorizationSteve
 
 
 class EventCreator:
@@ -54,6 +51,8 @@ class EventCreator:
             calevent.add('summary', event.summary)
             calevent.add('description', event.description)
             calevent.add('dtstart', event.start)
+            calevent.add('dtend', event.end)
+            calevent.add('color', 'tomato')
             calevent['uid'] = event.event_id
             cal.add_component(calevent)
 
