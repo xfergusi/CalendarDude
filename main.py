@@ -1,7 +1,7 @@
 import argparse
 
-from AllisonVisits.AllisonVisitManager import AllisonVisitManager
-from BackEnd.TheBrain import TheBrain
+from AllisonVisits.AllisonVisitManager import generate_visits_on_gcal
+from BackEnd.EventManager import EventManager
 from Learning import LearningManager
 from Tides.TideLevelManager import TideLevelManager
 from BackEnd.Testing2 import Testing2
@@ -14,7 +14,7 @@ def main():
     print('You are running -%s- program ', args.program)
     if args.program == "allison":
         print("Running code for allison")
-        AllisonVisitManager().generate_visits_on_gcal()
+        generate_visits_on_gcal()
     if args.program == "test":
         print("Running code for test")
         Testing2().test()
@@ -30,8 +30,7 @@ def main():
         print("tide : pulls data to find low tides for the next bit")
         print("Quit : kills the program\n")
 
-    the_brain = TheBrain()
-    the_brain.create_the_events()
+    EventManager().make_the_ics_file()
 
 
 if __name__ == '__main__':

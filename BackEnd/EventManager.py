@@ -1,7 +1,9 @@
 import hashlib
 
+from icalendar import Calendar, Event as calEvent
 from BackEnd.Event import Event
 from BackEnd.TheBrain import TheBrain
+import os
 
 
 def set_id(summary, start, end):
@@ -11,35 +13,29 @@ def set_id(summary, start, end):
 
 
 class EventManager:
-    the_brain = TheBrain()
+
+    the_brain = []
 
     def make_an_all_day_event(self, summary, start, end):
         event_id = set_id(summary, start, end)
-        self.the_brain.list_of_events.append(Event(event_id, summary, start, end))
+        self.the_brain.append(Event(event_id, summary, start, end))
 
     def make_an_event(self, summary, start, end):
         event_id = set_id(summary, start, end)
-        self.the_brain.list_of_events.append(Event(event_id, summary, start, end))
+        self.the_brain.append(Event(event_id, summary, start, end))
 
-    # def make_an_event(self, summary, start, end):
-    #     event_id = set_id(summary, start, end)
-    #     if not self.check_if_event_exists(event_id):
-    #         Event(event_id, summary, start, end).make_an_event_direct_to_gcal()
-    #
-    # def check_if_event_exists(self, event_id):
-    #     if event_id in self.event_id_holder.event_ids:
-    #         print("Looks like this event already exists. I won't create another one. You're welcome ")
-    #         return True
+    def make_the_ics_file(self):
 
-    # def make_an_all_day_event(self, summary, start, end, input_method):
-    #     event_id = set_id(summary, start, end)
-    #     if input_method == "ics":
-    #         Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
-    #     else:
-    #         if not self.check_if_event_exists(event_id):
-    #             Event(event_id, summary, start, end).make_an_all_day_event_direct_to_gcal()
-    #
-    # def make_an_event(self, summary, start, end, input_method):
-    #     event_id = set_id(summary, start, end)
-    #     if not self.check_if_event_exists(event_id):
-    #         Event(event_id, summary, start, end).make_an_event_direct_to_gcal()
+        cal = Calendar()
+        for event in self.the_brain:
+            calevent = calEvent()
+            calevent.add('summary', event.summary)
+            calevent.add('description', event.description)
+            calevent.add('dtstart', event.start)
+            calevent.add('dtend', event.end)
+            calevent['uid'] = event.event_id
+            cal.add_component(calevent)
+
+        f = open(os.path.join('example.ics'), 'wb')
+        f.write(cal.to_ical())
+        f.close()
