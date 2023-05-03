@@ -2,7 +2,6 @@ import hashlib
 
 from icalendar import Calendar, Event as calEvent
 from BackEnd.Event import Event
-from BackEnd.TheBrain import TheBrain
 import os
 
 
