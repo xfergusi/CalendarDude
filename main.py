@@ -2,7 +2,6 @@ import argparse
 
 from AllisonVisits.AllisonVisitManager import AllisonVisitManager
 from BackEnd.TheBrain import TheBrain
-from InputParams import InputParams
 from Learning import LearningManager
 from Tides.TideLevelManager import TideLevelManager
 from BackEnd.Testing2 import Testing2
@@ -32,10 +31,7 @@ def main():
         print("Quit : kills the program\n")
 
     the_brain = TheBrain()
-    print(len(the_brain.list_of_events))
     the_brain.create_the_events()
-
-
 
 
 if __name__ == '__main__':

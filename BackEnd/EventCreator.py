@@ -52,7 +52,6 @@ class EventCreator:
             calevent.add('description', event.description)
             calevent.add('dtstart', event.start)
             calevent.add('dtend', event.end)
-            calevent.add('color', 'tomato')
             calevent['uid'] = event.event_id
             cal.add_component(calevent)
 

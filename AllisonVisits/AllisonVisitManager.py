@@ -17,11 +17,14 @@ class AllisonVisitManager:
                                           row['Visit Status Effective Date'])
 
     def make_interim_monitoring_events(self, site_number, start, end):
-        start = datetime.strptime(str(start), '%Y-%m-%d %H:%M:%S').date()
-        end = datetime.strptime(str(end), '%Y-%m-%d %H:%M:%S').date()
+        start = self.strdate_to_date(start)
+        end = self.strdate_to_date(end)
         create_an_event(str(site_number) + " Start of Window", start, start)
         create_an_event(str(site_number) + " End of Window", end, end)
 
     def make_close_out_event(self, site_number, start):
         start = datetime.strptime(str(start), '%Y-%m-%d %H:%M:%S').date()
         create_an_event(str(site_number) + " Close out", start, start)
+
+    def strdate_to_date(self, str_date):
+        return datetime.strptime(str(str_date), '%Y-%m-%d %H:%M:%S').date()
