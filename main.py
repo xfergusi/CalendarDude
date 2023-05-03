@@ -3,8 +3,8 @@ import argparse
 from AllisonVisits.AllisonVisitManager import generate_visits_on_gcal
 from BackEnd.EventManager import EventManager
 from Learning import LearningManager
-from Tides.TideLevelManager import TideLevelManager
-from BackEnd.Testing2 import Testing
+from Tides.TideLevelManager import generate_tide_events
+from BackEnd.Testing import Testing
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
         Testing().test()
     elif args.program == "tide" or args.program == "tides":
         print("Running code for low tide calendar importer")
-        TideLevelManager().generate_tide_events()
+        generate_tide_events()
     elif args.program == "how-to":
         LearningManager.run()
     else:
