@@ -24,7 +24,7 @@ def generate_visits_on_gcal():
     data = pd.read_excel(r'AllisonVisits/als_data/sites02052023.xlsx')
     only_planned_df = data.loc[data['Visit Status'] == 'Planned']
     for index, row in only_planned_df.iterrows():
-        if row["Visit Type"] == "Interim Monitoring" and row["Visit Window Max Date"].strftime("%Y %m") == "2023 05":
+        if row["Visit Type"] == "Interim Monitoring" and row["Visit Window Max Date"].strftime("%Y") == "2023":
             make_interim_monitoring_events(row["Site #"],
                                                 row["Visit Window Min Date"],
                                                 row['Visit Window Max Date'])
