@@ -35,6 +35,6 @@ class EventManager:
             calevent['uid'] = event.event_id
             cal.add_component(calevent)
 
-        f = open(os.path.join('example.ics'), 'wb')
+        f = open(os.path.join('outputs/example.ics'), 'wb')
         f.write(cal.to_ical())
         f.close()
