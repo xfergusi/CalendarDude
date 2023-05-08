@@ -22,13 +22,12 @@ def scrape_the_web_for_low_tides():
             list_of_low_tide_datetimes.append(__raw_string_to_datetime(time_str))
     return list_of_low_tide_datetimes
 
+
 def scrape_the_web_for_sunrise_and_set():
-    tide_page = requests.get('https://www.sunrisesunsettime.org/australia-pacific/australia/sydney.htm')
-    tide_page = BeautifulSoup(tide_page.text, "lxml")
-    table = tide_page.find_all('strong', {'class': 'sunrise-time'})
-
+    sun_page = requests.get('https://www.sunrisesunsettime.org/australia-pacific/australia/sydney.htm')
+    sun_page = BeautifulSoup(sun_page.text, "lxml")
+    table = sun_page.find_all('strong', {'class': 'sunrise-time'})
     sunrise = table[0].text
-    table = tide_page.find_all('strong', {'class': 'sunset-time'})
+    table = sun_page.find_all('strong', {'class': 'sunset-time'})
     sunset = table[0].text
-
     return sunrise, sunset
