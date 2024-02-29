@@ -15,7 +15,7 @@ def main():
     if args.program == "allison":
         print("Running code for allison")
         generate_visits_on_gcal()
-    if args.program == "test":
+    elif args.program == "test":
         print("Running code for test")
         Testing().test()
     elif args.program == "tide" or args.program == "tides":
