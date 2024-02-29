@@ -1,3 +1,4 @@
 conf/cred_stuff
 AllisonVisits/als_data
 outputs
+__pycache__/
