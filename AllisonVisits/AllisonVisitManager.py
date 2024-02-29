@@ -21,13 +21,16 @@ def make_interim_monitoring_events(site_number, start, end):
 
 
 def generate_visits_on_gcal():
-    data = pd.read_excel(r'AllisonVisits/als_data/RSV_Visits.xlsx')
-    only_planned_df = data.loc[data['Visit Status'] == 'Planned']
+    data = pd.read_excel(r'AllisonVisits/ForFergz.xlsx')
+    only_planned_df = data.loc[data['Monitoring Event Status'] == 'Planned']
     for index, row in only_planned_df.iterrows():
-        if row["Visit Type"] == "Interim Monitoring" and row["Visit Window Max Date"].strftime("%Y") == "2023":
+        if pd.isnull(row["Monitoring Event Window Max Date (Siebel)"]):
+            continue
+        # if row["Monitoring Event Type"] == "Monitoring Event" and row["Monitoring Event Window Max Date (Siebel)"].strftime("%Y") == "2024":
+        if row["Monitoring Event Type"] == "Monitoring Event":
             make_interim_monitoring_events(row["Site #"],
-                                                row["Visit Window Min Date"],
-                                                row['Visit Window Max Date'])
-        elif row["Visit Type"] == "Close-Out" and row["Visit Status Effective Date"].strftime("%Y") == "2023":
-            make_close_out_event(row["Site #"],
-                                      row['Visit Status Effective Date'])
+                                                row["Monitoring Event Window Min Date (Siebel)"],
+                                                row["Monitoring Event Window Max Date (Siebel)"])
+        # elif row["Monitoring Event Type"] == "Close-Out Event" and row["Monitoring Event Status Effective Date"].strftime("%Y") == "2024":
+        #     make_close_out_event(row["Site #"],
+        #                               row['Monitoring Event Status Effective Date'])
