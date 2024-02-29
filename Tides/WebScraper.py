@@ -13,6 +13,7 @@ def __raw_string_to_datetime(string_to_convert):
 def scrape_the_web_for_low_tides():
     tide_page = requests.get('https://tides.willyweather.com.au/nsw/sydney/bondi-beach.html')
     tide_page = BeautifulSoup(tide_page.text, "lxml")
+    print(tide_page)
     table = tide_page.find_all('li', {'class': 'day'})
     list_of_low_tide_datetimes = []
     for row in table:
