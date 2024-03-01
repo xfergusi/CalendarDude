@@ -2,3 +2,4 @@ conf/cred_stuff
 AllisonVisits/als_data
 outputs
 __pycache__/
+__init__.py

@@ -26,11 +26,17 @@ def generate_visits_on_gcal():
     for index, row in only_planned_df.iterrows():
         if pd.isnull(row["Monitoring Event Window Max Date (Siebel)"]):
             continue
-        # if row["Monitoring Event Type"] == "Monitoring Event" and row["Monitoring Event Window Max Date (Siebel)"].strftime("%Y") == "2024":
-        if row["Monitoring Event Type"] == "Monitoring Event":
+        if (
+            row["Monitoring Event Type"] == "Monitoring Event" and
+            row["Monitoring Event Window Max Date (Siebel)"].strftime("%Y") == "2024"
+        ):
+            # if row["Monitoring Event Type"] == "Monitoring Event":
             make_interim_monitoring_events(row["Site #"],
-                                                row["Monitoring Event Window Min Date (Siebel)"],
-                                                row["Monitoring Event Window Max Date (Siebel)"])
-        # elif row["Monitoring Event Type"] == "Close-Out Event" and row["Monitoring Event Status Effective Date"].strftime("%Y") == "2024":
-        #     make_close_out_event(row["Site #"],
-        #                               row['Monitoring Event Status Effective Date'])
+                                           row["Monitoring Event Window Min Date (Siebel)"],
+                                           row["Monitoring Event Window Max Date (Siebel)"])
+        elif (
+            row["Monitoring Event Type"] == "Close-Out Event" and
+            row["Monitoring Event Status Effective Date"].strftime("%Y") == "2024"
+        ):
+            make_close_out_event(row["Site #"],
+                                 row['Monitoring Event Status Effective Date'])

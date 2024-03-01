@@ -21,7 +21,6 @@ class Testing:
         tide_page = BeautifulSoup(tide_page.content, "html.parser")
         print(tide_page)
 
-
         # url = "https://www.ladbrokes.com.au/sports/baseball"
         # browser = webdriver.PhantomJS()
         # browser.get(url)
